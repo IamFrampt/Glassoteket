@@ -1,0 +1,31 @@
+﻿@using mikaeleriksson.Shared;
+@inherits LayoutComponentBase
+
+<header>
+     <CascadingValue Value="@searchBarWord">
+    <NavMenu />
+    </CascadingValue>
+</header>
+
+<div class="container">
+
+    <main role="main" class="pb-3">
+        <CascadingValue Value="@searchBarWord">
+        @Body
+        </CascadingValue>
+    </main>
+
+    <hr class=""/>
+    
+    <footer class=" footer text-muted">
+        <div class="container">
+            &copy; 2023 - Glassoteket - <a class="text-decoration-none" href="/Kontakt">Kontakt</a>
+        </div>
+    </footer>
+
+
+</div>
+
+@code{
+    private SearchedWord searchBarWord = new();
+}

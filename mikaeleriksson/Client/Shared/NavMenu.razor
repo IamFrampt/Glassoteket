@@ -1,0 +1,61 @@
+﻿@using mikaeleriksson.Shared;
+
+@inject NavigationManager _navigationmanager;
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand  text-white" href="">Glassotektet</a>
+        <button class="navbar-toggler" type="button" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown show">
+                    <NavLink class="nav-link dropdown-toggle  text-white" @onclick="() => expandSubNavSettings = !expandSubNavSettings" id="navbarDropdown">
+                        <span class="oi oi-list-rich text-white" aria-hidden="true"></span> Glassar
+                    </NavLink>
+                    @if (expandSubNavSettings)
+                    {
+                    <li class="dropdown-menu show bg-dark" aria-labelledby="navbarDropdown" @onclick="() => expandSubNavSettings = !expandSubNavSettings">
+                    <li class="nav-item mb-0 p-0">
+                        <NavLink class="nav-link text-white" href="glasslista" @onclick="(() => changeCompany(null))">
+                           <h6>Alla glassar</h6>
+                        </NavLink>
+                    </li>
+                    <li class="dropdown-divider bg-white"></li>
+                    <li class="nav-item ">
+                        <NavLink class="nav-link text-white" href="glasslista" @onclick="(() => changeCompany(glassCompany[0]))">
+                            <h6>GB</h6>
+                        </NavLink>
+                    </li>
+                    <li class="nav-item ">
+                        <NavLink class="nav-link text-white" href="glasslista" @onclick="(() => changeCompany(glassCompany[1]))">
+                            <h6>Ben And Jerry</h6>
+                        </NavLink>
+                    </li>
+                    <li class="nav-item ">
+                        <NavLink class="nav-link text-white" href="glasslista" @onclick="(() => changeCompany(glassCompany[2]))">
+                            <h6>Lohilo</h6>
+                        </NavLink>
+                    </li>
+
+                    </li>
+                    }
+                </li>
+                
+                <li class="nav-item mr-auto">
+                    <NavLink class="nav-link text-white" href="Favoriter" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Favoriter
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link text-white" href="Kontakt">
+                        <span class="oi oi-envelope-closed" aria-hidden="true"></span> Kontakta oss
+                    </NavLink>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

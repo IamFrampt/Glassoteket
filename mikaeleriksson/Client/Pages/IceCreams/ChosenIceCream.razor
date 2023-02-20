@@ -1,0 +1,99 @@
+﻿@page "/glass"
+@using Newtonsoft.Json;
+@using mikaeleriksson.Shared;
+
+@inject HttpClient client;
+
+@if (iceCream != null)
+{
+    
+    <div class="containter-fluid">
+
+        <div class="row">
+
+            <div class="card">
+
+            <div class="col-lg-6 col-sm-12 float-lg-start">
+
+                <img class="mx-auto d-block mt-3 img-fluid" src="@iceCream.Img" alt="https://via.placeholder.com/150x150" />
+            </div>
+
+
+            <div class="col-lg-6 col-sm-12 float-lg-end">
+
+                <h2>@iceCream.Name - @iceCream.Company</h2>
+                <h5>@iceCream.Info</h5>
+
+                    <button @onclick="checkToAddOrRemove"
+                        class="btn @( isFavorite == true ? "btn-danger" : "btn-secondary" )">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                        </svg>
+                    </button>
+
+            </div>
+
+
+            <div class="row col-12">
+
+                <table class="table table-striped mt-5">
+                    <thead>
+                    <th>Näringsämne </th>
+                    <th>Per glass</th>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Energi</td>
+                            <td>@iceCream.nutritionalContent.Energy.Calorie kcal / @iceCream.nutritionalContent.Energy.Kilojoules kJ</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Fett</td>
+                            <td>@iceCream.nutritionalContent.Fat g</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Salt</td>
+                            <td>@iceCream.nutritionalContent.Salt g</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Kolhydrater</td>
+                            <td>@iceCream.nutritionalContent.Carbohydrates g</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Protein</td>
+                            <td>@iceCream.nutritionalContent.Protein g</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <p>Information om den här glassen finns inte tillgänglig.</p>
+    </div>
+}
+
