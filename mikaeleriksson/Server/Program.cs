@@ -1,8 +1,11 @@
-using Microsoft.AspNetCore.ResponseCompression;
+
+
+
 using Microsoft.EntityFrameworkCore;
 using mikaeleriksson.Server.Data;
-using System;
-
+using mikaeleriksson.Server.Extensions;
+using mikaeleriksson.Server.Services;
+using mikaeleriksson.Server.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,8 @@ builder.Services.AddDbContext<FavoriteDbContext>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,6 +54,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCors("CorsPolicy");
+app.MapAuthEndPoints();
 
 app.MapRazorPages();
 app.MapControllers();

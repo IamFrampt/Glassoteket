@@ -1,4 +1,5 @@
-﻿@using mikaeleriksson.Shared;
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using mikaeleriksson.Shared;
 
 @inject NavigationManager _navigationmanager;
 
@@ -43,20 +44,23 @@
                     </li>
                     }
                 </li>
-                
+                 <AuthorizeView>
+            <Authorized>
                 <li class="nav-item mr-auto">
                     <NavLink class="nav-link text-white" href="Favoriter" Match="NavLinkMatch.All">
                         <span class="oi oi-home" aria-hidden="true"></span> Favoriter
                     </NavLink>
                 </li>
                 <li class="nav-item">
-                    <NavLink class="nav-link text-white" href="Kontakt">
-                        <span class="oi oi-envelope-closed" aria-hidden="true"></span> Kontakta oss
-                    </NavLink>
-                </li>
-                <li class="nav-item">
                     <NavLink class="nav-link text-white" href="HittaButik">
                         <span class="oi oi-basket" aria-hidden="true"></span> Hitta Butik
+                    </NavLink>
+                        </li>
+                    </Authorized>
+                </AuthorizeView>
+                <li class="nav-item">
+                    <NavLink class="nav-link text-white" href="Kontakt">
+                        <span class="oi oi-envelope-closed" aria-hidden="true"></span> Kontakta oss
                     </NavLink>
                 </li>
                 

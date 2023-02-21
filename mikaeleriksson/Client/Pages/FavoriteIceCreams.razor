@@ -1,6 +1,8 @@
 ﻿@page "/favoriter"
+@using Microsoft.AspNetCore.Authorization;
 
 @inject HttpClient client;
+@attribute [Authorize]
 
 <div class="containter-fluid">
 
