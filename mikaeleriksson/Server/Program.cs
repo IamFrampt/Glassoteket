@@ -32,8 +32,15 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Secrets.json");
+
 var app = builder.Build();
 app.UseAuthentication();
+
+
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
