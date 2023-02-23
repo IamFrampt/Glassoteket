@@ -17,7 +17,7 @@ public partial class FavoriteIceCreams : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        allIcecreams = await Pclient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+        allIcecreams = await client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
 
     }
 

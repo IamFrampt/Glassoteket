@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddDbContext<GlassotekDbContext>(options =>
 {
-	var connectionString = builder.Configuration.GetConnectionString("GlassotekDB");
+	var connectionString = builder.Configuration.GetConnectionString("GlassoteketDB");
 	options.UseSqlServer(connectionString);
 });
 

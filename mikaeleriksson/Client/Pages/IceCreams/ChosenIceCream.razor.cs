@@ -22,7 +22,7 @@ public partial class ChosenIceCream : ComponentBase
 	protected override async Task OnInitializedAsync()
 	{
 		string url = "https://icelabb.azurewebsites.net/GetByName?Name=" + word.Word;
-		var response = await publicClient.client.GetAsync(url);
+		var response = await client.GetAsync(url);
 
 		if (!response.IsSuccessStatusCode)
 		{
@@ -55,8 +55,11 @@ public partial class ChosenIceCream : ComponentBase
 
 	private async Task<bool> checkIfFavorite()
 	{
+		try
+		{
 
-        var favorites = await publicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+        var favorites = await client.GetFromJsonAsync<List<Favorite>>("api/Favorites");
+		
 
 		if(favorites != null)
 		{
@@ -72,6 +75,11 @@ public partial class ChosenIceCream : ComponentBase
 		{
 			return false;
 		}
+        }
+        catch
+        {
+            return false; ;
+        }
 
         return false;
 	}
@@ -92,7 +100,7 @@ public partial class ChosenIceCream : ComponentBase
 
 	private async Task AddToFavorites()
 	{
-		var favorites = await publicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+		var favorites = await client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
 
 		if (favorites != null)
 		{
@@ -103,7 +111,7 @@ public partial class ChosenIceCream : ComponentBase
 					return;
 				}
 			}
-			using (var msg = await publicClient.client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
+			using (var msg = await client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
 			{
 				if (msg.IsSuccessStatusCode)
 				{
@@ -115,13 +123,13 @@ public partial class ChosenIceCream : ComponentBase
 
 	private async Task RemoveFromFavorites()
 	{
-		var favorites = await publicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+		var favorites = await client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
 
 		if (favorites != null)
 		{
 			var index = favorites.FindIndex(x => x.Name.Contains(iceCream.Name));
 
-			using (var msg = await publicClient.client.DeleteAsync($"/api/Favorites/{favorites[index].Id}"))
+			using (var msg = await client.DeleteAsync($"/api/Favorites/{favorites[index].Id}"))
 			{
 				if (msg.IsSuccessStatusCode)
 				{

@@ -5,7 +5,7 @@
 namespace mikaeleriksson.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class newtoken : Migration
+    public partial class secondmig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

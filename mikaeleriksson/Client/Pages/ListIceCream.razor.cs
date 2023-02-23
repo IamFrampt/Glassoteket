@@ -23,11 +23,11 @@ public partial class ListIceCream : ComponentBase
 
         if(string.IsNullOrEmpty(word.Word))
         {
-            response = await publicClient.client.GetAsync(url + "/GetData");
+            response = await client.GetAsync(url + "/GetData");
         }
         else
         {
-            response = await publicClient.client.GetAsync(url + "/getbycompanyname?companyname=" + word.Word);
+            response = await client.GetAsync(url + "/getbycompanyname?companyname=" + word.Word);
         }
 
         if (!response.IsSuccessStatusCode)

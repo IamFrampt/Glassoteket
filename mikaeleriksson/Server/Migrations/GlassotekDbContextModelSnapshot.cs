@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mikaeleriksson.Server.Data;
 
@@ -12,11 +11,9 @@ using mikaeleriksson.Server.Data;
 namespace mikaeleriksson.Server.Migrations
 {
     [DbContext(typeof(GlassotekDbContext))]
-    [Migration("20230223084829_Initial")]
-    partial class Initial
+    partial class GlassotekDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

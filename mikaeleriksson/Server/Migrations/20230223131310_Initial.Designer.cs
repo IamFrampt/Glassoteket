@@ -12,8 +12,8 @@ using mikaeleriksson.Server.Data;
 namespace mikaeleriksson.Server.Migrations
 {
     [DbContext(typeof(GlassotekDbContext))]
-    [Migration("20230223103954_new token")]
-    partial class newtoken
+    [Migration("20230223131310_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
