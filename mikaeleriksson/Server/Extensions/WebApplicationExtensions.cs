@@ -10,8 +10,8 @@ public static class WebApplicationExtensions
 {
     public static WebApplication MapAuthEndPoints(this WebApplication app)
     {
-        app.MapPost("/user/Register", RegisterHandler);
-        app.MapPost("/user/Login", LoginHandler);
+        app.MapPost("user/Register", RegisterHandler);
+        app.MapPost("user/Login", LoginHandler);
         return app;
     }
 
