@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Icecream;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
 

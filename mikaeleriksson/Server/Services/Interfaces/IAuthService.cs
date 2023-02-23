@@ -1,7 +1,7 @@
 ﻿
 
 using mikaeleriksson.Server.Data;
-using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Login;
 
 namespace mikaeleriksson.Server.Services.Interfaces;
 

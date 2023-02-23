@@ -1,6 +1,7 @@
 ﻿using mikaeleriksson.Shared;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
+using mikaeleriksson.Shared.DTOs.Icecream;
 
 namespace mikaeleriksson.Client.Pages;
 
@@ -18,6 +19,8 @@ public partial class ListIceCream : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
+        StateHasChanged();
+
         if(string.IsNullOrEmpty(word.Word))
         {
             response = await client.GetAsync(url + "/GetData");

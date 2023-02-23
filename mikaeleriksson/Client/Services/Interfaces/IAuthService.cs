@@ -1,4 +1,4 @@
-﻿using mikaeleriksson.Shared;
+﻿using mikaeleriksson.Shared.DTOs.Login;
 
 namespace mikaeleriksson.Client.Services.Interfaces;
 

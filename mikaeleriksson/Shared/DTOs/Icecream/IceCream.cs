@@ -1,5 +1,4 @@
-﻿
-namespace mikaeleriksson.Shared;
+﻿namespace mikaeleriksson.Shared.DTOs.Icecream;
 
 public class IceCream
 {

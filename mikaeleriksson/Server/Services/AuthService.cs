@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using mikaeleriksson.Server.Data;
 using mikaeleriksson.Server.Services.Interfaces;
-using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Login;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;

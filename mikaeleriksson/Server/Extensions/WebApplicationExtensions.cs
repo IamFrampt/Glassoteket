@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using mikaeleriksson.Server.Data;
 using mikaeleriksson.Server.Services.Interfaces;
-using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Login;
 using System.ComponentModel.DataAnnotations;
 
 namespace mikaeleriksson.Server.Extensions;

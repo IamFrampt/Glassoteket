@@ -1,6 +1,6 @@
 ﻿using mikaeleriksson.Client.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
-using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Login;
 
 namespace mikaeleriksson.Client.Pages;
 

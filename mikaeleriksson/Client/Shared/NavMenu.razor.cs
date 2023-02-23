@@ -31,6 +31,8 @@ public partial class NavMenu:ComponentBase
     public void changeCompany(string name)
     {
         word.Word = name;
+        _navigationmanager.NavigateTo("/");
     }
+
 
 }

@@ -1,4 +1,4 @@
-﻿namespace mikaeleriksson.Shared;
+﻿namespace mikaeleriksson.Shared.DTOs.Login;
 
 public class ServiceResponse<T>
 {

@@ -1,30 +1,40 @@
 ﻿@page "/login"
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Components
-@using mikaeleriksson.Client.Services.Interfaces
-@using mikaeleriksson.Shared;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using mikaeleriksson.Client.Services.Interfaces;
+@using mikaeleriksson.Shared.DTOs.Login;
 @inject IAuthService _authService
 @inject ISessionStorageService _sessionStorage
 @inject NavigationManager _navigationManager
 @inject AuthenticationStateProvider _authenticationStateProvider
 
-<h3>LoginUser</h3>
+
+<div class="container" style="height:70vh">
+
+
+<h3 class="mt-5">Logga in</h3>
+
+
+
+<div class="col-3 mt-3">
+
 
 <EditForm Model="_user" OnValidSubmit="HandleSubmit">
     <DataAnnotationsValidator />
     <div class="mb-3">
-        <label for="email">Email</label>
-        <InputText id="email" @bind-Value="_user.Email" />
+        <label class="form-label" for="email">Email</label>
+        <InputText class="form-control" id="email" @bind-Value="_user.Email" />
     </div>
     <div class="mb-3">
-        <label for="password">Password</label>
-        <InputText id="password" @bind-Value="_user.Password" type="password" />
+            <label class="form-label" for="password">Lösenord</label>
+            <InputText class="form-control" id="password" @bind-Value="_user.Password" type="password" />
     </div>
     <ValidationSummary />
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Logga in</button>
 </EditForm>
 <div class="text-danger">
     <span>@_errorMessage</span>
+</div>
+    </div>
 </div>
 @code {
 

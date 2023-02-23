@@ -1,6 +1,6 @@
 ﻿
 using mikaeleriksson.Client.Services.Interfaces;
-using mikaeleriksson.Shared;
+using mikaeleriksson.Shared.DTOs.Login;
 using System.Net.Http.Json;
 
 namespace mikaeleriksson.Client.Services;
