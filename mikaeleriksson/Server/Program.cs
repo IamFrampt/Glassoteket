@@ -19,9 +19,9 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader());
 });
 
-builder.Services.AddDbContext<FavoriteDbContext>(options =>
+builder.Services.AddDbContext<GlassotekDbContext>(options =>
 {
-	var connectionString = builder.Configuration.GetConnectionString("FavoriteDB");
+	var connectionString = builder.Configuration.GetConnectionString("GlassotekDB");
 	options.UseSqlServer(connectionString);
 });
 

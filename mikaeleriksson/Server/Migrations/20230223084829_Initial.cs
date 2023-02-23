@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace mikaeleriksson.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialmig : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,22 @@ namespace mikaeleriksson.Server.Migrations
                 {
                     table.PrimaryKey("PK_FavoriteIceCreams", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfCreation = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -39,6 +55,9 @@ namespace mikaeleriksson.Server.Migrations
         {
             migrationBuilder.DropTable(
                 name: "FavoriteIceCreams");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

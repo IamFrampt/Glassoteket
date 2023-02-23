@@ -12,10 +12,10 @@ namespace mikaeleriksson.Server.Services;
 
 public class AuthService : IAuthService
 {
-    private readonly FavoriteDbContext _peopleContext;
+    private readonly GlassotekDbContext _peopleContext;
     private readonly IConfiguration _config;
 
-    public AuthService(FavoriteDbContext peopleContext, IConfiguration config)
+    public AuthService(GlassotekDbContext peopleContext, IConfiguration config)
     {
         _peopleContext = peopleContext;
         _config = config;

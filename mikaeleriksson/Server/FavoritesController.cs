@@ -9,9 +9,9 @@ namespace mikaeleriksson.Server
     [ApiController]
     public class FavoritesController : ControllerBase
     {
-        private readonly FavoriteDbContext db;
+        private readonly GlassotekDbContext db;
 
-        public FavoritesController(FavoriteDbContext db)
+        public FavoritesController(GlassotekDbContext db)
         {
             this.db = db;
         }

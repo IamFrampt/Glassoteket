@@ -3,12 +3,12 @@ using mikaeleriksson.Shared;
 
 namespace mikaeleriksson.Server.Data;
 
-public class FavoriteDbContext : DbContext
+public class GlassotekDbContext : DbContext
 {
     public DbSet<Favorite> FavoriteIceCreams { get; set; }
 
     public DbSet<UserModel> Users { get; set; }
-    public FavoriteDbContext(DbContextOptions options) : base(options)
+    public GlassotekDbContext(DbContextOptions options) : base(options)
     {
 
     }

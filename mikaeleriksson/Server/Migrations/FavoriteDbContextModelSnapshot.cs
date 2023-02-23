@@ -10,7 +10,7 @@ using mikaeleriksson.Server.Data;
 
 namespace mikaeleriksson.Server.Migrations
 {
-    [DbContext(typeof(FavoriteDbContext))]
+    [DbContext(typeof(GlassotekDbContext))]
     partial class FavoriteDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
