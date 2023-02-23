@@ -21,11 +21,7 @@ builder.Services.AddHttpClient("mikaeleriksson.ServerAPI", client => client.Base
  .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 // Supply HttpClient instances that include access tokens when making requests to the server project
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("mikaeleriksson.ServerAPI")); builder.Services.AddHttpClient<PublicClient>(client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
-builder.Services.AddMsalAuthentication(options =>
-{
-    builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
-    options.ProviderOptions.DefaultAccessTokenScopes.Add(builder.Configuration.GetSection("ServerApi")["Scopes"]);
-});
+
 
 builder.Services.AddHttpClient<PublicClient>(client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
