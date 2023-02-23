@@ -22,7 +22,7 @@ public partial class ChosenIceCream : ComponentBase
 	protected override async Task OnInitializedAsync()
 	{
 		string url = "https://icelabb.azurewebsites.net/GetByName?Name=" + word.Word;
-		var response = await client.GetAsync(url);
+		var response = await PublicClient.client.GetAsync(url);
 
 		if (!response.IsSuccessStatusCode)
 		{
@@ -58,7 +58,7 @@ public partial class ChosenIceCream : ComponentBase
 		try
 		{
 
-        var favorites = await client.GetFromJsonAsync<List<Favorite>>("api/Favorites");
+        var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("api/Favorites");
 		
 
 		if(favorites != null)
@@ -100,7 +100,7 @@ public partial class ChosenIceCream : ComponentBase
 
 	private async Task AddToFavorites()
 	{
-		var favorites = await client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+		var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
 
 		if (favorites != null)
 		{
@@ -111,7 +111,7 @@ public partial class ChosenIceCream : ComponentBase
 					return;
 				}
 			}
-			using (var msg = await client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
+			using (var msg = await PublicClient.client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
 			{
 				if (msg.IsSuccessStatusCode)
 				{
@@ -123,13 +123,13 @@ public partial class ChosenIceCream : ComponentBase
 
 	private async Task RemoveFromFavorites()
 	{
-		var favorites = await client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+		var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
 
 		if (favorites != null)
 		{
 			var index = favorites.FindIndex(x => x.Name.Contains(iceCream.Name));
 
-			using (var msg = await client.DeleteAsync($"/api/Favorites/{favorites[index].Id}"))
+			using (var msg = await PublicClient.client.DeleteAsync($"/api/Favorites/{favorites[index].Id}"))
 			{
 				if (msg.IsSuccessStatusCode)
 				{

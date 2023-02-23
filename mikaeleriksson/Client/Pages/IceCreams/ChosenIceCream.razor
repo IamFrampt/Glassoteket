@@ -4,7 +4,7 @@
 @using mikaeleriksson.Shared;
 
 @inject HttpClient client;
-@inject PublicClient publicClient;
+@inject PublicClient PublicClient;
 
 @if (iceCream != null)
 {
@@ -27,6 +27,20 @@
 
                     <div class=" col-lg-6 col-md-6 col-sm-12 ps-md-3 float-end">
 
+                        <div class="float-end">
+                            <AuthorizeView>
+                                <Authorized>
+                                    <button @onclick="checkToAddOrRemove"
+                                        class="btn @( isFavorite == true ? "btn-danger" : "btn-secondary" )">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                                        </svg>
+                                    </button>
+                                </Authorized>
+                            </AuthorizeView>
+
+                        </div>
+
                         <div class="float-start">
 
                             <h1 class="text-center">@iceCream.Name</h1>
@@ -48,19 +62,7 @@
 
                         </div>
 
-                        <div class="float-end">
-                            <AuthorizeView>
-                                <Authorized>
-                                    <button @onclick="checkToAddOrRemove"
-                                        class="btn @( isFavorite == true ? "btn-danger" : "btn-secondary" )">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                                        </svg>
-                                    </button>
-                                </Authorized>
-                            </AuthorizeView>
-
-                        </div>
+                       
                     </div>
 
                     <div class=" row col-lg-12">
