@@ -10,7 +10,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-app.UseAuthentication();
+
 builder.Services.AddSessionStorageServices();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddOptions();
