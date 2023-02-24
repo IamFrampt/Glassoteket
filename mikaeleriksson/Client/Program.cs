@@ -16,7 +16,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
-
+//
 //builder.Services.AddHttpClient("mikaeleriksson.ServerAPI", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
 // .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 //// Supply HttpClient instances that include access tokens when making requests to the server project
