@@ -1,9 +1,6 @@
 ﻿@page "/HittaButik"
 @using Microsoft.AspNetCore.Authorization;
 
-
-@attribute [Authorize]
-
 <div class="container">
 
     <div class="row">
@@ -15,43 +12,39 @@
 
             <div class="card mt-5">
 
-                <div class="text-center">
+                <div class="card-header text-center">
                     <h1>Här hittar du glassarna</h1>
                 </div>
 
                 <div class="card-body">
 
-                    <table class="table table-striped mb-5">
 
-                        <tbody>
-                            <tr>
-                                <td>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
 
-                                    <div class="img-fluid">
-                                        <a href="https://handlaprivatkund.ica.se/stores/1004219/search?q=glass"><img src="https://www.benjerry.se/files/live/sites/systemsite/files/find-us/ICA-logotyp-211x75.png" /></a>
+                    <div class=" col-lg-2 col-md-2 col-sm-12 col-12 float-lg-start float-md-start text-center mx-sm-auto ">
+                        <a href="https://handlaprivatkund.ica.se/stores/1004219/search?q=glass"><img src="https://www.benjerry.se/files/live/sites/systemsite/files/find-us/ICA-logotyp-211x75.png" /></a>
+                    </div>
+
+                    <div class="col-lg-8 col-md-8 col-sm-12 float-lg-end float-md-end text-sm-center">
+                                <h5 class="ps-lg-5 ps-md-5 mt-sm-3">Klicka hem lite glass nästa du handlar mat online från din ICA-butik på nätet. Vi lovar att du inte kommer ångra det!</h5>
+                    </div>
+                    <div class=""></div>
+                        </li>
+                        <li class="list-group-item">
+
+                            <div class=" col-lg-2 col-md-2 col-sm-12 col-12 float-lg-start float-md-start text-center mx-sm-auto ">
+                                 <a href="https://www.hemkop.se/sok?q=glass&sort=relevance&page=1"><img style="width:220px;" src="https://www.benjerry.se/files/live/sites/systemsite/files/find-us/Hemkop_nya_CMYK.png" /></a>
                                     </div>
-                                </td>
-                                <td>
-                                    Klicka hem lite glass nästa du handlar mat online från din ICA-butik på nätet. Vi lovar att du inte kommer ångra det!
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    <div>
-                                        <a href="https://www.hemkop.se/sok?q=glass&sort=relevance&page=1"><img src="https://www.benjerry.se/files/live/sites/systemsite/files/find-us/Hemkop_nya_CMYK.png" /></a>
-                                    </div>
-                                </td>
-                                <td>
-                                    Handla glass tillsammans med dina matvaror smidigt online hos Hemköp
-                                </td>
-                            </tr>
+                            <div class="col-lg-8 col-md-8 col-sm-12 float-lg-end float-md-end text-sm-center">
+                                <h5 class="ps-lg-5  ps-md-5 mt-sm-3">Handla glass tillsammans med dina matvaror smidigt online hos Hemköp</h5>
+                            </div>
+                            <div class=""></div>
+                        </li>
+                    </ul>
 
-                        </tbody>
-
-
-                    </table>
-
+                    
                 </div>
 
             </div>

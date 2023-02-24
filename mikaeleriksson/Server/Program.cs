@@ -25,6 +25,9 @@ builder.Services.AddDbContext<GlassotekDbContext>(options =>
 	options.UseSqlServer(connectionString);
 });
 
+
+
+
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
