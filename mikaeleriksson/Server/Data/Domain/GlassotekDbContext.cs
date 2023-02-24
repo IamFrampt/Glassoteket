@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using mikaeleriksson.Server.Data.Model;
 using mikaeleriksson.Shared;
 
-namespace mikaeleriksson.Server.Data;
+namespace mikaeleriksson.Server.Data.Domain;
 
 public class GlassotekDbContext : DbContext
 {

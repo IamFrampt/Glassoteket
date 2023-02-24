@@ -1,7 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using mikaeleriksson.Server.Data;
+using mikaeleriksson.Server.Data.Domain;
+using mikaeleriksson.Server.Data.Model;
 using mikaeleriksson.Server.Services.Interfaces;
 using mikaeleriksson.Shared.DTOs.Login;
 using System.IdentityModel.Tokens.Jwt;

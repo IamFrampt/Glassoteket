@@ -45,7 +45,7 @@ public class CustomAuthStateProvider : AuthenticationStateProvider
 
         NotifyAuthenticationStateChanged(Task.FromResult(state));
 
-        return state;
+         return state;
     }
 
     private IEnumerable<Claim> ParseClaimsFromJwt(string jwt)

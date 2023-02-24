@@ -3,22 +3,26 @@ using mikaeleriksson.Shared;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
 
-namespace mikaeleriksson.Client.Pages;
+namespace mikaeleriksson.Client.Pages.IceCreams;
 
 public partial class FavoriteIceCreams : ComponentBase
 {
-    public List<Favorite> allIcecreams { get; set; }
+    public List<Favorite>? allIcecreams { get; set; }
 
     [CascadingParameter]
     public SearchedWord? word { get; set; }
 
-    string url = "https://icelabb.azurewebsites.net";
-
-
     protected override async Task OnInitializedAsync()
     {
-        allIcecreams = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+        try
+        {
 
+        allIcecreams = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
+        }
+        catch
+        {
+            allIcecreams = null;
+        }
     }
 
 

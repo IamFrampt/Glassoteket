@@ -11,12 +11,12 @@ namespace mikaeleriksson.Shared.DTOs.Login;
 public class UserRegisterDto
 {
     [EmailAddress, Required]
-    public string Email { get; set; }
+    public string? Email { get; set; }
     [Required, StringLength(100, MinimumLength = 6)]
-    public string Password { get; set; }
+    public string? Password { get; set; }
 
     [Compare("Password")]
-    public string PasswordConfirm { get; set; }
+    public string? PasswordConfirm { get; set; }
 
 
 }

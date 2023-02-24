@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using mikaeleriksson.Server.Data;
+using mikaeleriksson.Server.Data.Model;
 using mikaeleriksson.Server.Services.Interfaces;
 using mikaeleriksson.Shared.DTOs.Login;
 using System.ComponentModel.DataAnnotations;

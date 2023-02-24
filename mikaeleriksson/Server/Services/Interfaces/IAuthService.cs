@@ -1,6 +1,4 @@
-﻿
-
-using mikaeleriksson.Server.Data;
+﻿using mikaeleriksson.Server.Data.Model;
 using mikaeleriksson.Shared.DTOs.Login;
 
 namespace mikaeleriksson.Server.Services.Interfaces;

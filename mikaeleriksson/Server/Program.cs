@@ -2,22 +2,12 @@
 
 
 using Microsoft.EntityFrameworkCore;
-using mikaeleriksson.Server.Data;
+using mikaeleriksson.Server.Data.Domain;
 using mikaeleriksson.Server.Extensions;
 using mikaeleriksson.Server.Services;
 using mikaeleriksson.Server.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder => builder
-            .AllowAnyMethod()
-            .AllowCredentials()
-            .SetIsOriginAllowed((host) => true)
-            .AllowAnyHeader());
-});
 
 builder.Services.AddDbContext<GlassotekDbContext>(options =>
 {

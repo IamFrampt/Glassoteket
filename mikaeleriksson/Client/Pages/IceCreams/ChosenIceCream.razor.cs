@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using mikaeleriksson.Shared;
-using mikaeleriksson.Shared.DTOs.Icecream;
+using mikaeleriksson.Shared.DTOs.IcecreamDTO;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
 
@@ -30,22 +30,26 @@ public partial class ChosenIceCream : ComponentBase
 		}
 
 		var data = await response.Content.ReadAsStringAsync();
-		iceCream = JsonConvert.DeserializeObject<IceCream>(data);
 
-		newFavoriteIceCream = new Favorite()
+		iceCream = JsonConvert.DeserializeObject<IceCream>(data);
+		if (iceCream != null)
 		{
-			Name = iceCream.Name,
-			Info = iceCream.Info,
-			Img = iceCream.Img,
-			Type = iceCream.Type,
-			Company = iceCream.Company,
-			Calorie = iceCream.nutritionalContent.Energy.Calorie,
-			Kilojoules = iceCream.nutritionalContent.Energy.Kilojoules,
-			Fat = iceCream.nutritionalContent.Fat,
-			Salt = iceCream.nutritionalContent.Salt,
-			Carbohydrates = iceCream.nutritionalContent.Carbohydrates,
-			Protein = iceCream.nutritionalContent.Protein,
-		};
+
+			newFavoriteIceCream = new Favorite()
+			{
+				Name = iceCream.Name,
+				Info = iceCream.Info,
+				Img = iceCream.Img,
+				Type = iceCream.Type,
+				Company = iceCream.Company,
+				Calorie = iceCream.nutritionalContent.Energy.Calorie,
+				Kilojoules = iceCream.nutritionalContent.Energy.Kilojoules,
+				Fat = iceCream.nutritionalContent.Fat,
+				Salt = iceCream.nutritionalContent.Salt,
+				Carbohydrates = iceCream.nutritionalContent.Carbohydrates,
+				Protein = iceCream.nutritionalContent.Protein,
+			};
+		}
 
 		isFavorite = await checkIfFavorite();
 
@@ -58,38 +62,38 @@ public partial class ChosenIceCream : ComponentBase
 		try
 		{
 
-        var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("api/Favorites");
-		
+			var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("api/Favorites");
 
-		if(favorites != null)
-		{
-			for (int i = 0; i < favorites.Count; i++)
+
+			if (favorites != null)
 			{
-				if (favorites[i].Name.Contains(iceCream.Name))
+				for (int i = 0; i < favorites.Count; i++)
 				{
-					return true;
+					if (favorites[i].Name.Contains(iceCream.Name))
+					{
+						return true;
+					}
 				}
 			}
+			else
+			{
+				return false;
+			}
 		}
-		else
+		catch
 		{
-			return false;
+			return false; ;
 		}
-        }
-        catch
-        {
-            return false; ;
-        }
 
-        return false;
+		return false;
 	}
 
 	private void checkToAddOrRemove()
 	{
-		if(isFavorite)
+		if (isFavorite)
 		{
 			RemoveFromFavorites();
-			isFavorite= false;
+			isFavorite = false;
 		}
 		else
 		{
@@ -101,21 +105,24 @@ public partial class ChosenIceCream : ComponentBase
 	private async Task AddToFavorites()
 	{
 		var favorites = await PublicClient.client.GetFromJsonAsync<List<Favorite>>("/api/Favorites");
-
-		if (favorites != null)
+		if (iceCream != null)
 		{
-			for (int i = 0; i < favorites.Count; i++)
+
+			if (favorites != null)
 			{
-				if (favorites[i].Name.Contains(iceCream.Name))
+				for (int i = 0; i < favorites.Count; i++)
 				{
-					return;
+					if (favorites[i].Name.Contains(iceCream.Name))
+					{
+						return;
+					}
 				}
-			}
-			using (var msg = await PublicClient.client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
-			{
-				if (msg.IsSuccessStatusCode)
+				using (var msg = await PublicClient.client.PostAsJsonAsync<Favorite>("/api/Favorites", newFavoriteIceCream, CancellationToken.None))
 				{
-					FIC.Add(await msg.Content.ReadFromJsonAsync<Favorite>());
+					if (msg.IsSuccessStatusCode)
+					{
+						FIC.Add(await msg.Content.ReadFromJsonAsync<Favorite>());
+					}
 				}
 			}
 		}

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using mikaeleriksson.Server.Data;
+using mikaeleriksson.Server.Data.Domain;
 using mikaeleriksson.Shared;
 
-namespace mikaeleriksson.Server
+namespace mikaeleriksson.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -55,7 +55,7 @@ namespace mikaeleriksson.Server
         public async Task<Favorite> Post([FromBody] Favorite create)
         {
             create.Id = Guid.NewGuid();
-			EntityEntry<Favorite> cust = await db.FavoriteIceCreams.AddAsync(create);
+            EntityEntry<Favorite> cust = await db.FavoriteIceCreams.AddAsync(create);
             await db.SaveChangesAsync();
             return cust.Entity;
         }

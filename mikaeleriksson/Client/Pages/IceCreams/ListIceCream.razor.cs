@@ -1,9 +1,9 @@
 ﻿using mikaeleriksson.Shared;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
-using mikaeleriksson.Shared.DTOs.Icecream;
+using mikaeleriksson.Shared.DTOs.IcecreamDTO;
 
-namespace mikaeleriksson.Client.Pages;
+namespace mikaeleriksson.Client.Pages.IceCreams;
 
 public partial class ListIceCream : ComponentBase
 {

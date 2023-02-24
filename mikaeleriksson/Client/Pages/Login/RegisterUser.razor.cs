@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using mikaeleriksson.Shared.DTOs.Login;
 
-namespace mikaeleriksson.Client.Pages;
+namespace mikaeleriksson.Client.Pages.Login;
 
 partial class RegisterUser : ComponentBase
 {
